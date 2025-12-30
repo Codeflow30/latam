@@ -37,6 +37,14 @@ app.post('/send', async (req, res) => {
       socketTimeout: 20000
     });
 
+      // Vérifier la connexion SMTP avant d'envoyer (aide au debug)
+      try {
+        await transporter.verify();
+      } catch (verifyErr) {
+        console.error('Vérification SMTP échouée:', verifyErr);
+        return res.status(500).json({ error: 'Impossible de se connecter au serveur SMTP. Vérifiez GMAIL_USER et GMAIL_PASS (utilisez un app password si 2FA).' });
+      }
+
     //  CONTENU DU MAIL
     const mailOptions = {
       from: `"LATAM Prêt" <${process.env.GMAIL_USER}>`,
@@ -53,9 +61,10 @@ Date : ${new Date().toISOString()}
     await transporter.sendMail(mailOptions);
 
     return res.json({ message: 'Demande envoyée avec succès' });
-  } catch (err) {
+    } catch (err) {
     console.error('Erreur envoi mail:', err);
-    return res.status(500).json({ error: "Échec de l'envoi du mail" });
+    const debug = process.env.NODE_ENV !== 'production';
+    return res.status(500).json({ error: "Échec de l'envoi du mail", ...(debug ? { details: err.message } : {}) });
   }
 });
 
