@@ -1,0 +1,87 @@
+/* Design Apple-inspired */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+:root{
+  --accent:#0b3d91;
+  --light:rgba(255,255,255,0.95);
+  --muted:rgba(255,255,255,0.75);
+  --text-dark:#1d1d1f;
+  --bg-light:#f5f5f7;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Nunito',-apple-system,BlinkMacSystemFont,'Segoe UI','San Francisco','Helvetica Neue',Roboto,Arial,sans-serif}
+
+/* HERO SECTION */
+.hero{position:relative;min-height:100vh;background-image:url('téléchargement (3).jpeg');background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;justify-content:center;color:var(--light)}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.35) 50%,rgba(0,0,0,0.5) 100%)}
+
+/* WAVE DIVIDER */
+.wave-divider{position:relative;height:120px;background:#fff;margin-bottom:-1px}
+.wave-divider svg{position:absolute;width:100%;height:100%;display:block;top:0;left:0}
+.wave-divider.wave-top svg{transform:rotate(180deg)}
+.container{position:relative;max-width:980px;margin:0 auto;padding:60px 48px;width:100%}
+.hero .container{text-align:center}
+
+/* HEADER */
+.header{margin-bottom:0}
+.header h1{margin:0;font-size:64px;font-weight:600;letter-spacing:-2px;line-height:1.1}
+.tag{margin:20px 0 40px;font-size:20px;font-weight:400;color:var(--muted);letter-spacing:-0.3px}
+
+/* OTHER SECTIONS */
+section{padding:80px 0;background:#fff;color:var(--text-dark)}
+section .container{text-align:center}
+section h2{font-size:36px;font-weight:600;margin-bottom:24px;letter-spacing:-0.5px}
+section p{font-size:18px;font-weight:300;line-height:1.7;color:#555;max-width:600px;margin:20px auto}
+.how{background:#fafafa}
+.how ol{padding-left:40px;font-size:18px;line-height:1.8;color:#555;max-width:600px;margin:24px auto;text-align:left}
+.how li{margin-bottom:16px}
+
+/* TESTIMONIALS */
+.cards{display:flex;gap:24px;margin-top:40px;justify-content:center}
+blockquote{flex:1;max-width:280px;background:#f5f5f7;padding:32px;border-left:4px solid var(--accent);margin:0;border-radius:8px;text-align:left;font-size:16px;line-height:1.7;color:#333}
+blockquote cite{display:block;margin-top:20px;color:#888;font-size:14px;font-style:normal}
+
+/* CTA BUTTONS */
+.cta{display:flex;gap:16px;justify-content:center;margin-top:32px}
+.btn{background:transparent;border:2px solid;color:inherit;padding:14px 28px;border-radius:980px;cursor:pointer;font-size:16px;font-weight:500;transition:all 0.3s ease;letter-spacing:-0.2px}
+.hero .btn{border-color:var(--light);color:var(--light)}
+.hero .btn:hover{background:var(--light);color:#1d1d1f;transform:translateY(-2px)}
+.hero .btn.primary{background:var(--accent);border-color:var(--accent);color:white}
+.hero .btn.primary:hover{opacity:0.85;transform:translateY(-2px)}
+section .btn{border-color:var(--text-dark);color:var(--text-dark)}
+section .btn:hover{background:var(--text-dark);color:white;transform:translateY(-2px)}
+section .btn.primary{background:var(--accent);border-color:var(--accent);color:white}
+section .btn.primary:hover{opacity:0.85;transform:translateY(-2px)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:40;backdrop-filter:blur(4px)}
+.modal[aria-hidden="false"]{display:flex}
+.modal-content{background:linear-gradient(135deg,#0a2540,#082033);color:#fff;padding:32px;border-radius:14px;max-width:420px;width:90%;position:relative;border:1px solid rgba(255,255,255,0.1)}
+.modal-content h3{font-size:24px;font-weight:600;margin:0 0 24px;letter-spacing:-0.3px}
+.close{position:absolute;right:16px;top:16px;background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer;transition:color 0.2s}
+.close:hover{color:var(--light)}
+label{display:block;margin:16px 0 8px;font-weight:500;font-size:14px;color:var(--muted)}
+input[type="email"],input[type="number"]{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:var(--light);font-size:16px;transition:border-color 0.2s;margin-bottom:12px}
+input[type="email"]:focus,input[type="number"]:focus{outline:none;border-color:var(--accent);background:rgba(255,255,255,0.08)}
+
+/* FORM */
+.form-actions{text-align:right;margin-top:20px}
+.form-actions .btn{padding:10px 20px;font-size:14px}
+.status{margin-top:14px;font-size:14px;color:var(--muted)}
+
+/* FOOTER */
+.footer{background:#1d1d1f;color:#888;padding:40px 0;text-align:center;font-size:14px}
+.footer .container{padding:0}
+
+/* RESPONSIVE */
+@media (max-width:700px){
+  .container{padding:40px 20px}
+  .hero .container{padding:60px 20px}
+  .header h1{font-size:48px}
+  .tag{font-size:18px}
+  section h2{font-size:28px}
+  section p{font-size:16px}
+  .cards{flex-direction:column;align-items:center}
+  blockquote{max-width:100%}
+  .cta{flex-direction:column;gap:12px}
+  .btn{width:100%}
+}
