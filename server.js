@@ -25,16 +25,10 @@ app.post('/send', async (req, res) => {
   try {
     //  TRANSPORTER SMTP GMAIL SÉCURISÉ
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // SSL obligatoire
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-      },
-      connectionTimeout: 20000,
-      greetingTimeout: 20000,
-      socketTimeout: 20000
+      host: 'smtp.sendgrid.net',
+      port: 587,
+      secure: false,
+      auth: { user: 'apikey', pass: process.env.SENDGRID_API_KEY }
     });
 
       // Vérifier la connexion SMTP avant d'envoyer (aide au debug)
