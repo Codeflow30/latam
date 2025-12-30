@@ -2,7 +2,7 @@ LATAM — Page vitrine et demande de prêt
 
 Installation
 
-1. Ouvrez un terminal dans le dossier du projet (c:\Users\Déo SOGBAVI\LATAM).
+1. Ouvrez un terminal dans le dossier du projet .
 2. Créez un fichier `.env` avec les variables suivantes:
 
 GMAIL_USER=votre.adresse@gmail.com
